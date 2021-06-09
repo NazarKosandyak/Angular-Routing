@@ -1,0 +1,24 @@
+<div class="menu">
+    <span>Last works >>>> 
+        <a class="cen all" href="" [routerLink]="['/cenzor']" routerLinkActive="active">Cenzor</a>
+        <a class="task all" href="" [routerLink]="['/userlist']">Users</a>
+        <a class="count all" href="" [routerLink]="['/countlist']">Task</a>
+        
+    </span>
+    <a class="count all home" href="" [routerLink]="['/home']" routerLinkActive="active">Back to >>> home</a>
+</div>
+<div class="main">
+    <div class="upper">
+        <div  class="left">Bad words : </div>
+        <div #textCon class="content"></div>
+    </div>
+    <div class="addWords">
+        <input #setText  type="text" class="set" [(ngModel)]="myValue" name="myValue">
+        <input (click)="getAdd()" type="button" value="Add" class="add" name="" id="">
+        <input (click)="resetValue()" type="button" value="Reset" class="reset" name="" id="">
+    </div>
+    <div class="textArea">
+        <textarea #textArea class="text" value=""></textarea>
+    </div>
+    <button #cenzor (click)="getCenzor()"  class="czr">Cenzor</button>
+</div>

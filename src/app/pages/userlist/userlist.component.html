@@ -1,0 +1,47 @@
+<div class="menu">
+    <span>Last works >>>> 
+        <a class="cen all" href="" [routerLink]="['/cenzor']" routerLinkActive="active">Cenzor</a>
+        <a class="task all" href="" [routerLink]="['/userlist']" routerLinkActive="active">Users</a>
+        <a class="count all" href="" [routerLink]="['/countlist']" routerLinkActive="active">Task</a>
+       
+    </span>
+    <a class="count all home" href="" [routerLink]="['/home']" routerLinkActive="active">Back to >>> home</a>
+</div>
+<div class="container">
+    <div class="left">
+            
+        <form name="login" #getForm='ngForm'>
+            <h1>login</h1>
+            <input #name class="name" [(ngModel)]="setName" name="setName" type="text" placeholder="Enter login">
+            <h1>Password</h1>
+            <input #pass class="pass" [(ngModel)]="setPass" name="setPass" type="password" placeholder="Enter password">
+            <h1>Email address</h1>
+            <input #email class="email" [(ngModel)]="setEmail" name="setEmail" type="email" placeholder="Enter email">
+            <input *ngIf="isHiden" class="add" name="add_btn" (click)="addUser()" type="button" value="Add user">
+        </form>
+
+    </div>
+    <div class="right">
+        <div class="tags">
+            <span>#</span>
+            <span>Login</span>
+            <span>Password</span>
+            <span>Email</span>
+            <span>Edit</span>
+            <span>Delete</span>
+        </div>
+        <div data-id="1" id="us" #content>
+         <ol>
+             <li *ngFor="let item of array; index as i">
+                 <span class="userName">{{item.name}}</span>
+                 <span class="userPass">{{item.pass}}</span>
+                 <span class="userEmail">{{item.email}}</span>
+                 <button class="stlEdit" (click)="editUser(i)">edit</button>
+                 <button class="stlDelete" (click)="deleteUser(i)">delete</button>
+             </li>
+             <button *ngIf="isVisible" class="save" (click)="saveEdit()">Edit user</button>
+         </ol>
+         
+        </div>
+    </div>
+</div>

@@ -1,0 +1,56 @@
+<div class="menu">
+    <span>Last works >>>> 
+        <a class="cen all" href="" [routerLink]="['/cenzor']" routerLinkActive="active">Cenzor</a>
+        <a class="task all" href="" [routerLink]="['/userlist']" routerLinkActive="active">Users</a>
+        <a class="count all" href="" [routerLink]="['/countlist']" routerLinkActive="active">Task</a>
+       
+    </span>
+    <a class="count all home" href="" [routerLink]="['/home']" routerLinkActive="active">Back to >>> home</a>
+</div>
+<div class="main">
+    <div class="plan">
+        <h1>Plan yor day!</h1>
+    </div>
+    <div class="">
+        <h1>User:Nazar Kosandiak. Count of Task {{length}}  </h1> 
+    </div>
+    <hr>
+  
+    <div class="addTask">
+      <input  class="inputAdd" type="text" [(ngModel)]="messege" name="messege" id="">
+      <input class="btnAdd" type="button" value="Add" (click)="addMessege()">
+    </div>
+  </div>
+<div class="stl">
+    <div class="tab">
+        <span>#</span>
+        <span>Task</span>
+        <span>Check</span>
+        <span>DONE/PROGRESS</span>
+        <span>Edit</span>
+        <span>Delete</span>
+    </div>
+</div>
+<div class="cont">
+    <ol >
+        <li *ngFor="let item of array; index as i" >
+            <div class="list" #list  >
+            <span class="spanName">{{item}}</span>
+            <input type="checkbox" #changeBox (click)="checkMyBox(i)" class="chb">
+            <ng-container *ngIf="checkMe; else elseTemplate">
+                <span class="done">Done</span>
+            </ng-container>
+            <ng-template #elseTemplate>
+                <span class="lose">in PROGRESS</span>
+            </ng-template>
+            <button class="edit" (click)="editBtn(i)">Edit</button>
+            <button (click)="deleteUser(i)" class="delete">Delete</button>
+        </div>
+        </li>
+    </ol>
+    <div class="secret" *ngIf="showSecret">
+        <input type="text" class="newName" [(ngModel)]="setName" name="setName">
+        <input (click)="getSave()"  type="button" value="save" class="save">
+    </div>
+    
+</div>
